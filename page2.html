@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Memory Game</title>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="crossorigin="anonymous"></script>
+</head>
+<body>
+	<h1>Guess the Number</h1>
+	    <input type="number" name="quantity" min="100000" max="999999" id="num"><br>
+        <button id="mybtn1">Guess</button>
+    <button onclick="window.location.href='1stpge.html';">Replay Game</button>
+    <div id="result"></div>
+
+</body>
+</html>
+
+<script  type="text/javascript">
+
+	 
+	var y = document.getElementById("mybtn1");
+    y.addEventListener("click", check);
+	
+function check()
+{
+	var store;
+	store=JSON.parse(localStorage.getItem("stored"));
+    var enteredValue=$('#num').val();
+    var count=0;
+                while(store>0 && enteredValue>0)
+                {
+                    if (store%10===enteredValue%10)
+                    count+=1;
+                    store=Math.floor(store/10);
+                    enteredValue=Math.floor(enteredValue/10);
+
+                    
+                }
+                
+	
+	document.getElementById("result").innerHTML=count + " correct guesses";
+
+}
+
+</script>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Memory Game</title>
+	
+</head>
+<body onLoad="setTimeout('loadNewDoc()', 5000)">
+	<h1>Generate the Number</h1><br>
+
+	<div id="unique"></div><br>
+
+	<button id="mybtn">Generate</button> 
+
+	<div id="refre"></div>
+
+
+	
+
+</body>
+</html>
+
+
+<script  type="text/javascript">
+	
+ var x = document.getElementById("mybtn");
+    x.addEventListener("click", getRandomIntInclusive);
+   
+
+    function getRandomIntInclusive(min, max) {
+  min = 100000;
+  max = 999999;
+  var stored=(Math.floor(Math.random() * (max - min + 1)) + min);
+  localStorage.setItem('stored',JSON.stringify(stored));
+  document.getElementById("unique").innerHTML=stored;
+  document.getElementById("refre").innerHTML= "Refreshing the page in 5 seconds..."
+}
+
+function loadNewDoc() {
+   window.location="page2.html"; 
+}
+ 
+	
+</script>
